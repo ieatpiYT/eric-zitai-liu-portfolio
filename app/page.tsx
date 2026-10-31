@@ -23,6 +23,16 @@ const SHARK_DEFS = (
 
 const projects = [
   {
+    name: "Rashomon",
+    sub: "3D crime reconstruction from witness testimony",
+    body: "Built at Cal Hacks 13.0 in 36 hours with a team of 3. I wrote the AI extraction pipeline that turns witness testimony into event graphs using Claude Sonnet 5.5 with 7 tool schemas, 5 of them strict. A validator rejects unknown landmarks, actors, invalid time intervals, and any event without a cited source utterance, so every event traces back to the witness's own words.",
+    extra: "I also hardened 3 webhook routes with constant-time secret checks, request size caps, and content-derived IDs so retried statements are never extracted twice, and built a Cartesia voice interviewer that asks neutral follow-ups and lets witnesses correct testimony by voice.",
+    stats: [["36h", "hackathon build"], ["7", "tool schemas"], ["3", "hardened webhook routes"]],
+    tags: "TypeScript, SpacetimeDB, Claude API, Cartesia, React Three Fiber",
+    href: "https://github.com/iamab0b/rashomon",
+    cta: "Read the source",
+  },
+  {
     name: "GrantCurrent",
     sub: "Funding intelligence for WaterAid Canada",
     body: "Built at The Foundry hackathon for a two-person fundraising team that can't chase every grant. I wrote the decision engine: it scores each Canadian funder on hard eligibility gates and weighted strategic fit, attaches a source link and confidence level to every claim, and flags unknowns instead of guessing.",
@@ -37,7 +47,7 @@ const projects = [
     sub: "Real-time multiplayer browser game",
     body: "An authoritative Node.js server keeps every player's state in sync, while the TypeScript and PixiJS client holds 60 FPS. Game state travels as binary over WebRTC DataChannels, with WebSockets handling signaling.",
     extra: "",
-    stats: [["30%", "smaller packets than JSON"], ["25%", "less server overhead"], ["20%", "lower latency"]],
+    stats: [["30%", "less bandwidth than JSON"], ["25%", "less server overhead"], ["20%", "lower latency"]],
     tags: "TypeScript, Node.js, WebSockets, WebRTC, PixiJS, Vite",
     href: "https://github.com/ieatpiYT/duels.io",
     cta: "Read the source",
@@ -52,7 +62,7 @@ const jobs = [
     points: [
       "Cut resource development time by 30% by evaluating educational tools and AI-powered workflows.",
       "Raised student engagement by 50% with project-based lessons built around problem-solving and logic.",
-      "Improved resource reuse by 25% by building reusable materials with instructors and staff.",
+      "Improved learning outcomes by 20% and resource reuse by 25% by iterating on student feedback and building reusable materials with instructors.",
     ],
   },
   {
@@ -95,7 +105,8 @@ export default function Home() {
             </h1>
             <p className="intro">
               I&apos;m Eric Zitai Liu, a computer science student at McMaster University. I build multiplayer
-              games, low-latency networking, and decision tools, most recently GrantCurrent for WaterAid Canada.
+              games, low-latency networking, and AI tools that show their sources, most recently Rashomon at
+              Cal Hacks and GrantCurrent for WaterAid Canada.
             </p>
             <div className="cta">
               <a className="btn solid" href="#work">See my work</a>
@@ -156,9 +167,12 @@ export default function Home() {
             </div>
           </article>
           <p className="skills">
-            <b>Languages</b> TypeScript, JavaScript, Python, Java, Lua, C++, C, SQL, HTML5, CSS3, Haskell<br />
-            <b>Frameworks</b> Node.js, Express.js, React, Socket.io, PixiJS, WebRTC, FastAPI, Nginx<br />
-            <b>Tools</b> PostgreSQL, SQLite, Docker, Railway, Vite, WebSockets, REST APIs, Binary Serialization
+            <b>Languages</b> Python, TypeScript, JavaScript, Java, C++, C, SQL, Lua, Haskell, HTML5, CSS3<br />
+            <b>AI and LLMs</b> Claude API, tool calling, structured outputs, prompt engineering, voice AI (Cartesia), output validation<br />
+            <b>Backend</b> Node.js, Express.js, FastAPI, REST APIs, webhooks, WebSockets, WebRTC, Socket.io, Nginx, binary serialization<br />
+            <b>Frontend</b> React, React Three Fiber, Three.js, PixiJS, Vite<br />
+            <b>Data</b> PostgreSQL, SQLite, SpacetimeDB, data analysis in Python<br />
+            <b>DevOps</b> Docker, Railway, Vercel, Git, GitHub, pnpm
           </p>
         </section>
 
@@ -168,6 +182,7 @@ export default function Home() {
             <a href="mailto:ericzitailiu@gmail.com">ericzitailiu@gmail.com</a>
             <a href="https://www.linkedin.com/in/eric-liu-b0694442a/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/ieatpiYT" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://devpost.com/zitai" target="_blank" rel="noreferrer">Devpost</a>
           </div>
         </footer>
       </main>
